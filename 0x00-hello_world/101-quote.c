@@ -3,10 +3,16 @@
 /**
  * main - Entry point
  *
- * Return: Alway 1 (Standar error)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-printf("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
+int i = 0;
+char a[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+while (a[i] != '\0')
+{
+putchar(a[i]);
+i++;
+}
 return (1);
 }
