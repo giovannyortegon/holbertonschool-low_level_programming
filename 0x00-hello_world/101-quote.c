@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 /**
  * main - Entry point
@@ -7,12 +8,7 @@
  */
 int main(void)
 {
-int i = 0;
 char a[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-while (a[i] != '\0')
-{
-putchar(a[i]);
-i++;
-}
+write(2, a, strlen(a));
 return (1);
 }
