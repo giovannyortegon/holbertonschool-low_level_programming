@@ -7,11 +7,17 @@
  */
 int main(void)
 {
-int n;
-for (n = 0; n <= 10; n++)
+int n = 0;
+while (n <= 10)
+{
+if ( n == 10)
+{
+printf("\n");
+}else
 {
 printf("%d", n);
 }
-putchar('\n');
+n++;
+}
 return (0);
 }
