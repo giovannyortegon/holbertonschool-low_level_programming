@@ -9,6 +9,6 @@
 int main(void)
 {
 char a[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-write(1, a, (61));
+write(2, a, (61));
 return (1);
 }
