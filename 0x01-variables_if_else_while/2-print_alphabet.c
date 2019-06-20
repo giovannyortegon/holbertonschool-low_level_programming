@@ -7,10 +7,9 @@
  */
 int main(void)
 {
-
-for( int a = 97; a < 123; a++ )
+for (int a = 97; a < 123; a++)
 {
-    putchar(a);
+putchar(a);
 }
 putchar('\n');
 return (0);
