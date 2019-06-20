@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-char a[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-write(2, a, (61));
+write(2, "and that piece of art is useful\" -\
+Dora Korpar, 2015-10-19\n", (60));
 return (1);
 }
