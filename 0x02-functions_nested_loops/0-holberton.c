@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * main - Entry point
  *
@@ -6,13 +7,13 @@
  */
 int main(void)
 {
-	int name, i = 0;
+	int i;
 	char a[] = "Holberton\n";
 
-	while (a[i] != '\0')
+	for(i = 0; a[i] != '\0'; i++)
 	{
-		name = _putchar(a[i]);
-		i++;
+		_putchar(a[i]);
 	}
-	return (name);
+
+	return (0);
 }
