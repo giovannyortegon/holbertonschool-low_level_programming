@@ -3,7 +3,7 @@
 /**
  * print_most_numbers - Entry points
  */
-voidy print_most_numbers(void)
+void print_most_numbers(void)
 {
 	/* @i: store number of ASCII*/
 	int i;
