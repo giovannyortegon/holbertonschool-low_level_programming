@@ -7,6 +7,7 @@
 void print_number(int n)
 {
 	char d1, d2, d3, d4;
+	unsigned int num;
 
 	if (n >= 0 && n <= 9)
 	{
@@ -41,9 +42,9 @@ void print_number(int n)
 	}
 	if (n <= -10 && n >= -99)
 	{
-		n = n * (-1);
-		d1 = n / 10;
-		d2 = n % 10;
+		num = n * (-1);
+		d1 = num / 10;
+		d2 = num % 10;
 		_putchar('-'), _putchar(d1 + '0'), _putchar(d2 + '0');
 	}
 }
