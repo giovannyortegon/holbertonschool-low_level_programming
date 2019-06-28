@@ -1,7 +1,8 @@
 #include "holberton.h"
 
 /**
- *
+ * print_number -  Entry point
+ * @n: Entry variable
  */
 void print_number(int n)
 {
