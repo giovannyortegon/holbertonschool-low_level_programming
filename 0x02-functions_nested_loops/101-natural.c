@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - Entry point
+ *
+ * Return: ALways 0 (Success)
+ */
 int main(void)
 {
 	int a,  mul, sum;
@@ -10,7 +15,7 @@ int main(void)
 		{
 			sum += a;
 		}
-	}	
+	}
 	printf("%d\n", sum);
 	return (0);
 }

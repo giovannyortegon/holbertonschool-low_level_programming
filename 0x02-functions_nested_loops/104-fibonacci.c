@@ -7,18 +7,19 @@
  */
 int main(void)
 {
-	unsigned long long a, b, c, i;
+	double a, b, c; 
+	int i;
 
 	a = 0;
 	b = 1;
 	c = 0;
 
-	for (i = 0; i <= 50; i++)
+	for (i = 0; i < 98; i++)
 	{
 		c = a + b;
 		a = b;
 		b = c;
-		printf("%llu\n", c);
+		printf("%.lf\n", c);
 	}
 	return (0);
 }

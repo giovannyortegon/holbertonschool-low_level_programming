@@ -13,12 +13,15 @@ int main(void)
 	b = 1;
 	c = 0;
 
-	for (i = 0; i <= 50; i++)
+	for (i = 0; i <= 98; i++)
 	{
-		c = a + b;
-		a = b;
-		b = c;
-		printf("%llu\n", c);
+		if (i % 2 == 0 && c <= 4000000)
+		{
+			c = a + b;
+			a = b;
+			b = c;
+			printf("%llu\n", c);
+		}
 	}
 	return (0);
 }
