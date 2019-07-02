@@ -11,12 +11,13 @@ void rev_string(char *s)
 	char tmp;
 	char p_arr[10];
 
-	strcpy(p_arr, s);
-
 	i = 0;
 
 	while (s[i] != '\0')
 	{
+		tmp = s[i];
+		p_arr[i] = tmp;
+		p_arr[i + 1] = '\0';
 		i++;
 	}
 
