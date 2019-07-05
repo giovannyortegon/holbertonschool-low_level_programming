@@ -7,33 +7,24 @@
  */
 char *cap_string(char *cap)
 {
-	int i;
-	char tmp;
+	int i, j;
+	char car[] = "}\n,;.!?\"(){ ";
 
 	i = 0;
 
 	while (cap[i] != '\0')
 	{
-		if (cap[i] == 32 && (cap[i + 1] >= 97 && cap[i + 1] <= 122))
+		for (j = 0; car[j] != '\0'; j++)
 		{
-			tmp = cap[i + 1] - 32;
-			cap[i + 1] = tmp;
-		}
-		if (cap[i] == '\t' && (cap[i + 1] >= 97 && cap[i + 1] <= 122))
-		{
-			cap[i] = 32;
-			tmp = cap[i + 1] - 32;
-			cap[i + 1] = tmp;
-		}
-		if (cap[i] == '\n' && (cap[i + 1] >= 97 && cap[i + 1] <= 122))
-		{
-			tmp = cap[i + 1] - 32;
-			cap[i + 1] = tmp;
-		}
-		if (cap[i] == 46 && (cap[i + 1] >= 97 && cap[i + 1] <= 122))
-		{
-			tmp = cap[i + 1] - 32;
-			cap[i + 1] = tmp;
+			if (cap[i] == car[j] && cap[i + 1] >= 97 && cap[i + 7] <= 122)
+			{
+				cap[i + 1] -= 32;
+			}
+			if (cap[i] == '\t' && cap[i + 1] >= 97 && cap[i + 7] <= 122)
+			{
+				cap[i] = ' ';
+				cap[i + 1] -= 32;
+			}
 		}
 		i++;
 	}
