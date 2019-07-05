@@ -16,11 +16,11 @@ char *cap_string(char *cap)
 	{
 		for (j = 0; car[j] != '\0'; j++)
 		{
-			if (cap[i] == car[j] && cap[i + 1] >= 97 && cap[i + 7] <= 122)
+			if (cap[i] == car[j] && cap[i + 1] >= 97 && cap[i + 1] <= 122)
 			{
 				cap[i + 1] -= 32;
 			}
-			if (cap[i] == '\t' && cap[i + 1] >= 97 && cap[i + 7] <= 122)
+			if (cap[i] == '\t' && cap[i + 1] >= 97 && cap[i + 1] <= 122)
 			{
 				cap[i] = ' ';
 				cap[i + 1] -= 32;
