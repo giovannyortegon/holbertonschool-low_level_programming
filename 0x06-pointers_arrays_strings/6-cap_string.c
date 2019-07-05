@@ -8,22 +8,24 @@
 char *cap_string(char *cap)
 {
 	int i, j;
-	char car[] = "}\n,;.!?\"(){ ";
+	char car[] = "}\n,;\t.!?\"(){ ";
 
 	i = 0;
 
 	while (cap[i] != '\0')
 	{
-		for (j = 0; car[j] != '\0'; j++)
+		if (cap[i + 1] >= 97 && cap[i + 1] <= 122)
 		{
-			if (cap[i] == car[j] && cap[i + 1] >= 97 && cap[i + 1] <= 122)
+			if (i == 0)
 			{
-				cap[i + 1] -= 32;
+				cap[i] -= 32;
 			}
-			if (cap[i] == '\t' && cap[i + 1] >= 97 && cap[i + 1] <= 122)
+			for (j = 0; car[j] != '\0'; j++)
 			{
-				cap[i] = ' ';
-				cap[i + 1] -= 32;
+				if (cap[i] == car[j])
+				{
+					cap[i + 1] -= 32;
+				}
 			}
 		}
 		i++;
