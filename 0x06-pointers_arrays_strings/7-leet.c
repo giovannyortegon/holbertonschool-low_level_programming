@@ -7,7 +7,7 @@
 char *leet(char *l)
 {
 	int i = 0, j;
-	char l1[] = "aeotl"; 
+	char l1[] = "aeotl";
 	char l2[] = "AEOTL";
 	char l3[] = "43071";
 
@@ -17,7 +17,7 @@ char *leet(char *l)
 		{
 			if (l[i] == l1[j] || l[i] == l2[j])
 			{
-				l[i] = l3[j];	
+				l[i] = l3[j];
 			}
 		}
 		i++;
