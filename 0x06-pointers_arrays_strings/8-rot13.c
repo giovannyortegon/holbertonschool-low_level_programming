@@ -1,11 +1,15 @@
 #include "holberton.h"
 
-
+/**
+ * rot13 - Entry point
+ * @rt: Entry pointer
+ * Return: codificated string in rot13
+ */
 char *rot13(char *rt)
 {
-	int i = 0 , j;
+	int i = 0, j;
 	char rI[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rO[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"; 
+	char rO[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	while (rt[i])
 	{
@@ -18,6 +22,5 @@ char *rot13(char *rt)
 		}
 		i++;
 	}
-	
 	return (rt);
 }
