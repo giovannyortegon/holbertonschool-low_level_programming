@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stddef.h>
 /**
  * _strspn - entry point
  * @s: entry pointer
@@ -13,7 +13,7 @@ unsigned int _strspn(char *s, char *accept)
 
 	unsigned int n = 0;
 
-	while (s[i] != ',')
+	while (s[i] != ' ' && s[i])
 	{
 		for (j = 0; accept[j] != '\0'; j++)
 		{
@@ -22,11 +22,5 @@ unsigned int _strspn(char *s, char *accept)
 		}
 		i++;
 	}
-	if (n == 0)
-		return ('\0');
-
-	else
-	{
-		return (n);
-	}
+	return (n);
 }
