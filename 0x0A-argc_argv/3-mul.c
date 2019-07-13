@@ -10,7 +10,7 @@
  */
 int main(int argc, char **argv)
 {
-	int n1 = 0, n2 = 0, add = 0;
+	int n1 = 0, n2 = 0, mul = 0;
 	int n = 0;
 
 	if (argc < 2)
@@ -22,8 +22,8 @@ int main(int argc, char **argv)
 	{
 		n1 = atoi(argv[1]);
 		n2 = atoi(argv[2]);
-		add = n1 * n2;
-		printf("%d", add);
+		mul = n1 * n2;
+		printf("%d", mul);
 	}
 	return (n);
 }
