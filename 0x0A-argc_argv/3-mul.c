@@ -9,7 +9,7 @@
  */
 int main(int argc, char **argv)
 {
-	double n1 = 0, n2 = 0, mul = 0;
+	int n1 = 0, n2 = 0, mul = 0;
 
 	if (argc < 2)
 	{
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		n1 = atoi(argv[1]);
 		n2 = atoi(argv[2]);
 		mul = n1 * n2;
-		printf("%.lf\n", mul);
+		printf("%d\n", mul);
 		return (0);
 	}
 }
