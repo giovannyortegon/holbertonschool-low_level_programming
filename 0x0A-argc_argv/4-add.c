@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * main - Entry point
+ * @argc: number of arguments
+ * @argv: arguments
+ * Return: 1 if it is error
+ */
 int main(int argc,  char **argv)
 {
 	int i;
