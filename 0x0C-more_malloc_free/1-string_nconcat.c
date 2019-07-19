@@ -43,8 +43,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		for (j = 0 ; j < n; j++, i++)
 			new[i] = s2[j];
 	}
+	new[i + 1] = '\0';
 	free(s1);
 	free(s2);
-	new[i + 1] = '\0';
 	return (new);
 }
