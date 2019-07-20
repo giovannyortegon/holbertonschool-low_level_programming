@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	int n1 = 0, n2 = 0, mul = 0;
 
-	if (argc < 2)
+	if (argc <= 2)
 	{
 		printf("Error\n");
 		return (1);
