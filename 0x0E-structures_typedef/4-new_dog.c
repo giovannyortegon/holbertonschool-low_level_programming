@@ -17,6 +17,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (p == NULL)
 		return (NULL);
 	/* Cpunting name pointer*/
+	i = 0;
 	while (name[i])
 		i++;
 	/* Reserving memeory to name */
