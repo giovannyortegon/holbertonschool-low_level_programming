@@ -10,41 +10,43 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	int i;
 	dog_t *p;
+	/* reserving memory to struct*/
 	p = malloc(sizeof(dog_t));
 	if (p == NULL)
-		return (NULL);	
-	char *nm = malloc(sizeof(*nm) + 1);
-	if (nm == NULL)
 		return (NULL);
-	char *on = malloc(sizeof(*nm) + 1);
-	if (on == NULL)
-		return (NULL);
+	/* Cpunting name pointer*/
+	while (name[i])
+		i++;
+	/* Reserving memeory to name */
+	char *nm = (char *) malloc((i + 1) * sizeof(char));
 
 	if (name == NULL)
 	{
-		free(p);	
-		free(nm);
-		free(on);
+		free(p);
 		return (NULL);
 	}
-	else
-	{
-		nm = name;
-		p->name = nm;
-	}
-	p->age = age;
-	if (owner == NULL)
+	/* Counting string of owner */
+	i = 0;
+	while (owner[i])
+		i++;
+	/* Reserving memory to on*/
+	char *on = (char *)malloc((i + 1) * sizeof(char));
+
+	if (on == NULL)
 	{
 		free(p);
 		free(nm);
-		free(on);
 		return (NULL);
 	}
-	else
-	{
-		on = owner;
-		p->owner = owner;
-	}
+	for (i = 0; name[i]; i++)
+		nm[i] = name[i];
+	for (i = 0; owner[i]; i++)
+		on[i] = owner[i];
+	p->name = nm;
+	p->age = age;
+	p->owner = on;
+
 	return (p);
 }
