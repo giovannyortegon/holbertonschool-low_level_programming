@@ -7,12 +7,11 @@
  * @argv: double pointer to arguments
  * Return: O for success
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	/* Variables for the two entry numbers */
 	int num1 = 0, num2 = 0;
-	/* pointer functions to get_op_func */
-	int (*calc)(int a, int b);
+	int calc;
 	/* accept only three arguments */
 	if (argc != 4)
 	{
@@ -22,19 +21,24 @@ int main(int argc, char *argv[])
 	/* convert arguments to numbers */
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
-	if ((*argv[2] == '/' || *argv[2] == '%') && num2 == 0)
+
+	/* calc to pint to get_op_func */
+	if (argv[2][0] != '+' && argv[2][0] != '-' && argv[2][0] != '*'
+		&& argv[2][0] != '/' && argv[2][0] != '%')
 	{
 		printf("Error\n");
-		exit(100);
+		exit(99);
 	}
-	/* calc to pint to get_op_func */
-	calc = get_op_func(argv[2]);
-	if (!get_op_func(argv[2]))
+	if (argv[2][1] == '\0')
+	{
+		calc = get_op_func(argv[2])(num1, num2);
+		printf("%d\n", calc);
+	}
+	else
 	{
 		printf("Error\n");
 		exit(99);
 	}
 	/* Print operation */
-	printf("%d\n", calc(num1, num2));
 	return (0);
 }
