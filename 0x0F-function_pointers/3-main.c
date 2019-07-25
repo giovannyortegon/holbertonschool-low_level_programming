@@ -1,5 +1,6 @@
 #include "3-calc.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * main - entry point
  * @argc: arguments number
@@ -28,7 +29,7 @@ int main(int argc, char *argv[])
 	}
 	/* calc to pint to get_op_func */
 	calc = get_op_func(argv[2]);
-	if (!calc)
+	if (!get_op_func(argv[2]))
 	{
 		printf("Error\n");
 		exit(99);
