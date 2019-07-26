@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	/* convert arguments to numbers */
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
-	if ((argv[2][0] == '/' || argv[2][0] == '%' )&& num2 == 0)
+	if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
 	{
 		printf("Error\n");
 		exit(100);
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	}
 	if (argv[2][1] == '\0')
 	{
-		calc = get_op_func(argv[2])(num1, num2);
+		calc = (*get_op_func(argv[2]))(num1, num2);
 		printf("%d\n", calc);
 	}
 	else
