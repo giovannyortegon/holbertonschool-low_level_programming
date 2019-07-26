@@ -15,12 +15,13 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	int i;
+	int i = 0;
 
-	for (i = 0; i <= 5; i++)
+	while (i <= 5)
 	{
-		if (s[0] == ops[i].op[0])
+		if (*s == ops[i].op[0])
 			return (ops[i].f);
+		i++;
 	}
 	/* Return NULL if it can't operate */
 	return (NULL);
