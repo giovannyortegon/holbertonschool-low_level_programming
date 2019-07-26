@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "3-calc.h"
 /**
  * get_op_func - entry point
@@ -17,10 +16,10 @@ int (*get_op_func(char *s))(int a, int b)
 	};
 	int i = 0;
 
-	while (i < 5)
+	while (i <= 5)
 	{
 		if (*s == ops[i].op[0])
-			return ((ops[i].f));
+			return (ops[i].f);
 		i++;
 	}
 	/* Return NULL if it can't operate */
