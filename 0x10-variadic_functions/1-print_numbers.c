@@ -19,12 +19,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			if (count < n - 1)
 				printf("%s", separator);
 		}
-		else
-		{
-			if (count < n - 1)
-				putchar(' ');
-		}
 	}
-	putchar('\n');
+	_putchar('\n');
 	va_end(args);
 }
