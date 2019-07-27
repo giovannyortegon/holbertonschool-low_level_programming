@@ -24,11 +24,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 				if (count < n - 1)
 					printf("%s", separator);
 			}
-			else
-			{
-				if (count < n - 1)
-					putchar(' ');
-			}
 		}
 		else
 		{
@@ -37,11 +32,6 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			{
 				if (count < n - 1)
 					printf("%s", separator);
-			}
-			else
-			{
-				if (count < n - 1)
-					putchar(' ');
 			}
 		}
 	}
