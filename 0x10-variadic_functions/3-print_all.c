@@ -3,78 +3,82 @@
 #include "variadic_functions.h"
 
 /**
- * print_char - entry point
- * @a: get argument
+ *print_c - print char
+ *@c: char
  */
-void print_char(va_list a)
+void print_c(va_list c)
 {
-	printf("%c", va_arg(a, int));
+	printf("%c", va_arg(c, int));
 }
 /**
- * print_int - entry point
- * @a: get argument
+ *print_s - print string
+ *@s: string
  */
-void print_int(va_list a)
+void print_s(va_list s)
 {
-	printf("%i", va_arg(a, int));
-}
-/**
- * print_float - entry point
- * @a: get argument
- */
-void print_float(va_list a)
-{
-	printf("%f", va_arg(a, double));
-}
-/**
- * print_string - entry point
- * @a: get argument
- */
-void print_string(va_list a)
-{
-	char *s = va_arg(a, char*);
+	char *string = va_arg(s, char *);
 
-	if (s == NULL)
+	if (string == NULL)
+	{
 		printf("(nil)");
-	else
-		printf("%s", s);
+		return;
+	}
+	printf("%s", string);
+}
+
+/**
+ *print_i - print integer
+ *@i: integer
+ *Return: ntg
+ */
+void print_i(va_list i)
+{
+	printf("%d", va_arg(i, int));
 }
 /**
- * print_all - entry point
- * @format: get string for filter quality arguments
+ *print_f - print float
+ *@f: float
  */
+void print_f(va_list f)
+{
+	printf("%f", va_arg(f, double));
+}
+/**
+ *print_all - prints anything.
+ *@format: list of arguments
+ */
+
 void print_all(const char * const format, ...)
 {
-	format_t pt[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string},
+	print_t valu[] = {
+		{"c", print_c},
+		{"s", print_s},
+		{"i", print_i},
+		{"f", print_f},
 		{NULL, NULL}
 	};
-	va_list args;
-	int m = 0, n;
+	va_list valist;
+	int i, a;
 	char *s = "";
 
-	va_start(args, format);
-
-	while (format != NULL && format[m])
+	va_start(valist, format);
+	i = 0;
+	while (format != NULL && format[i])
 	{
-		n = 0;
-
-		while (n < 4)
+		a = 0;
+		while (a < 4)
 		{
-			if (pt[n].t[0] == format[m])
+			if (valu[a].p[0] == format[i])
 			{
 				printf("%s", s);
-				pt[n].f(args);
+				(valu[a].f(valist));
 				s = ", ";
 				break;
 			}
-			n++;
+			a++;
 		}
-		m++;
+		i++;
 	}
 	printf("\n");
-	va_end(args);
+	va_end(valist);
 }
