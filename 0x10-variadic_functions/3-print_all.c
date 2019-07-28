@@ -2,7 +2,7 @@
 
 /**
  * print_char - entry point
- * @a: get argument
+ * @c: get argument
  */
 void print_char(va_list c)
 {
@@ -10,7 +10,7 @@ void print_char(va_list c)
 }
 /**
  * print_int - entry point
- * @a: get argument
+ * @i: get argument
  */
 void print_int(va_list i)
 {
@@ -18,7 +18,7 @@ void print_int(va_list i)
 }
 /**
  * print_float - entry point
- * @a: get argument
+ * @f: get argument
  */
 void print_float(va_list f)
 {
@@ -26,7 +26,7 @@ void print_float(va_list f)
 }
 /**
  * print_string - entry point
- * @a: get argument
+ * @str: get argument
  */
 void print_string(va_list str)
 {
