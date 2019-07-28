@@ -1,21 +1,8 @@
-#ifndef _VARIADIC_H_
-#define _VARIADIC_H_
+#ifndef __VARIADIC_H__
+#define __VARIADIC_H__
 
 #include <stdarg.h>
 #include <stdio.h>
-
-/**
- * struct function_type - entry signs
- *
- * @t: type of variables
- * @f: function to print type of variable
-*/
-typedef struct print_type
-{
-	char *t;
-	void (*f)(va_list);
-} format_t;
-
 int _putchar(char c);
 
 int sum_them_all(const unsigned int n, ...);
@@ -26,5 +13,17 @@ void print_char(va_list);
 void print_int(va_list);
 void print_float(va_list);
 void print_string(va_list);
+
+/**
+ * struct format_t - entry signs
+ *
+ * @t: type of variables
+ * @f: function to print type of variable
+*/
+typedef struct format_t
+{
+	char *t;
+	void (*f)(va_list);
+} format_t;
 
 #endif /* VARIADIC_FUNCTIONS.H */

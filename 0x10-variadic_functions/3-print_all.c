@@ -1,4 +1,7 @@
 #include "variadic_functions.h"
+#include <stdio.h>
+#include <stdarg.h>
+
 /**
  * print_char - entry va_list like type
  * @c: get va_list
@@ -32,9 +35,11 @@ void print_string(va_list s)
 	char *str = va_arg(s, char *);
 
 	if (str != NULL)
+	{
 		printf("%s", str);
-	else
-		printf("(nil)");
+		retun;
+	}
+	printf("(nil)");
 }
 /**
  * print_all - entry arguments
@@ -56,7 +61,7 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 	i = 0;
-	while (format[i])
+	while (format && format[i])
 	{
 		j = 0;
 		while (j < 4)
