@@ -22,8 +22,9 @@ typedef struct print_type
 	void (*f)(va_list);
 } format_t;
 
-void print_char(va_list c);
-void print_int(va_list i);
-void print_float(va_list f);
-void print_string(va_list str);
+void print_char(va_list);
+void print_int(va_list);
+void print_float(va_list);
+void print_string(va_list);
+
 #endif /* VARIADIC_FUNCTIONS.H */

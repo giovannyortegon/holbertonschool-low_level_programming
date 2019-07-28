@@ -1,39 +1,37 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
-#include <stdio.h>
 #include <stddef.h>
 
 /**
  * print_char - entry point
  * @a: get argument
  */
-void print_char(va_list c)
+void print_char(va_list a)
 {
-	printf("%c", va_arg(c, int));
+	printf("%c", va_arg(a, int));
 }
 /**
  * print_int - entry point
  * @a: get argument
  */
-void print_int(va_list i)
+void print_int(va_list a)
 {
-	printf("%i", va_arg(i, int));
+	printf("%i", va_arg(a, int));
 }
 /**
  * print_float - entry point
  * @a: get argument
  */
-void print_float(va_list f)
+void print_float(va_list a)
 {
-	printf("%f", va_arg(f, double));
+	printf("%f", va_arg(a, double));
 }
 /**
  * print_string - entry point
  * @a: get argument
  */
-void print_string(va_list str)
+void print_string(va_list a)
 {
-	char *s = va_arg(str, char*);
+	char *s = va_arg(a, char*);
 
 	if (s == NULL)
 		printf("%p", s);
@@ -59,11 +57,11 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
-	while (format[m] && format != NULL)
+	while (format != NULL && format[m])
 	{
 		n = 0;
 
-		while (pt[n].t)
+		while (a < 4)
 		{
 			if (pt[n].t[0] == format[m])
 			{
