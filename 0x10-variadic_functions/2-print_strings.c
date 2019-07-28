@@ -1,6 +1,7 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <stddef.h>
 
 /**
  * print_strings - entry point
@@ -21,21 +22,20 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		if (p_args != NULL)
 		{
 			printf("%s", p_args);
-			if (separator != NULL)
+			if (separator != NULL && count < n - 1)
 			{
-				if (count < n - 1)
-					printf("%s", separator);
+				printf("%s", separator);
 			}
 		}
 		else
 		{
 			printf("%p", p_args);
-			if (separator != NULL)
+			if (separator != NULL && count < n - 1)
 			{
-				if (count < n - 1)
-					printf("%s", separator);
+				printf("%s", separator);
 			}
 		}
 	}
+	putchar('\n');
 	va_end(args);
 }
