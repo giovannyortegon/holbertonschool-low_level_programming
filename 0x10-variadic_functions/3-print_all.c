@@ -38,7 +38,7 @@ void print_string(va_list str)
 		printf("%s", s);
 }
 /**
- * print_all - entry point
+` * print_all - entry point
  * @format: get string for filter quality arguments
  */
 void print_all(const char * const format, ...)
