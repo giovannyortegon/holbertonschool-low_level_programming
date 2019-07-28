@@ -7,33 +7,33 @@
  * print_char - entry point
  * @a: get argument
  */
-void print_char(va_list a)
+void print_char(va_list c)
 {
-	printf("%c", va_arg(a, int));
+	printf("%c", va_arg(c, int));
 }
 /**
  * print_int - entry point
  * @a: get argument
  */
-void print_int(va_list a)
+void print_int(va_list i)
 {
-	printf("%i", va_arg(a, int));
+	printf("%i", va_arg(i, int));
 }
 /**
  * print_float - entry point
  * @a: get argument
  */
-void print_float(va_list a)
+void print_float(va_list f)
 {
-	printf("%f", va_arg(a, double));
+	printf("%f", va_arg(f, double));
 }
 /**
  * print_string - entry point
  * @a: get argument
  */
-void print_string(va_list a)
+void print_string(va_list str)
 {
-	char *s = va_arg(a, char*);
+	char *s = va_arg(str, char*);
 
 	if (s == NULL)
 		printf("%p", s);
@@ -54,27 +54,27 @@ void print_all(const char * const format, ...)
 		{NULL, NULL}
 	};
 	va_list args;
-	int i = 0, j;
+	int m = 0, n;
 	char *s = "";
 
 	va_start(args, format);
 
-	while (format[i] && format != NULL)
+	while (format[m] && format != NULL)
 	{
-		j = 0;
+		n = 0;
 
-		while (pt[j].t)
+		while (pt[n].t)
 		{
-			if (pt[j].t[0] == format[i])
+			if (pt[n].t[0] == format[m])
 			{
 				printf("%s", s);
-				pt[j].f(args);
+				pt[n].f(args);
 				s = ", ";
 				break;
 			}
-			j++;
+			n++;
 		}
-		i++;
+		m++;
 	}
 	printf("\n");
 	va_end(args);
