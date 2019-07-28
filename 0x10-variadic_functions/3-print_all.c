@@ -1,7 +1,6 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
  * print_char - entry point
@@ -59,13 +58,13 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
-	while (format[i]&& format)
+	while (format[i] && format)
 	{
 		j = 0;
 
 		while (pt[j].t != NULL)
 		{
-			if (format[i] == pt[j].t[0])
+			if (pt[j].t[0] == format[i])
 			{
 				printf("%s", s);
 				pt[j].f(args);
