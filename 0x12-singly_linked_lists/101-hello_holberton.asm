@@ -1,12 +1,12 @@
-	extern printf
 
 section .data
-msg:	db "Hello world", 0 	; C string need 0 
+msg:	db "Hello, Holberton", 0 	; C string need 0 
 fmt:	db "%s", 10, 0			; The prinf format, "\n", 0
 
 section .text			; Code section.
 
 	global	main		; Standar gcc
+	extern printf
 
 main:
 	
