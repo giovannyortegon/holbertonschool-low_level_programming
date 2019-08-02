@@ -6,9 +6,9 @@
 */
 void free_list(list_t *head)
 {
-	list_t * ptr = head;
-	list_t * tmp;
-	
+	list_t *ptr = head;
+	list_t *tmp;
+
 	tmp = ptr->next;
 	free(ptr);
 	ptr = tmp;
