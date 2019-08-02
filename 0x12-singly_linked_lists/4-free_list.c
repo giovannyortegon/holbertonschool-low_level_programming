@@ -6,11 +6,8 @@
 */
 void free_list(list_t *head)
 {
-	int i = 0;
 	if (head != NULL)
-	{
-		while (head[i])
-			free(head[i]);
 		free(head);
-	}
+	else
+		return (NULL);
 }
