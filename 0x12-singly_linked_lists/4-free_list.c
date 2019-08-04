@@ -1,4 +1,4 @@
--#include "lists.h"
+#include "lists.h"
 
 /**
  * free_list - entry point
@@ -6,10 +6,13 @@
 */
 void free_list(list_t *head)
 {
-	list_t *ptr = head;
 	list_t *tmp;
+	list_t *prev = head;
 
-	tmp = ptr->next;
-	free(ptr);
-	ptr = tmp;
+	while (prev != NULL)
+	{
+		tmp = prev->next;
+		free(prev);
+		prev = tmp;
+	}
 }
