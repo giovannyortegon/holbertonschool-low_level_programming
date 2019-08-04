@@ -24,9 +24,11 @@ typedef struct list_s
 size_t print_list(const list_t *h);
 size_t list_len(const list_t *h);
 list_t *add_node(list_t **head, const char *str);
+list_t *add_node_end(list_t **head, const char *str);
 int _strlen(char *str);
 void _strcpy(list_t * dest,char *str);
 void free_list(list_t *head);
 void print_before(void)__attribute__((constructor));
+
 
 #endif /* LIST_H */
