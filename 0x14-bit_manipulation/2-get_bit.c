@@ -23,7 +23,10 @@ int get_bit(unsigned long int n, unsigned int index)
 		i++;
 	}
 	count = i - 1;
-	value = num[count - index];
+	if (index > count)
+		value = -1;
+	else
+		value = num[count - index];
 	return (value);
 }
 /**
