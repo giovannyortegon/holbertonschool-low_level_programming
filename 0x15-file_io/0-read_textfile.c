@@ -7,8 +7,10 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char buf[1024];
-	int fd;
+	char *buf;
+	int fd, w, r;
+
+	buf = (char *) malloc(letters * sizeof(char));
 
 	if (filename == NULL)
 		return (0);
@@ -18,26 +20,17 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		return (0);
 
-	read(fd, buf, letters);
+	r = read(fd, buf, letters);
 	buf[letters] = '\0';
+	if (r == -1)
+		return (0);
 
-	printf("%s", buf);
+	w = write(STDOUT_FILENO, buf, r);
+	if (w == -1)
+		return (0);
 
 	close(fd);
+	free(buf);
 
-	return (_strlen(buf));
-}
-/**
- * _strlen - entry point
- * @buf: str to count
- * Return: number of character
- */
-int _strlen(char *buf)
-{
-	int i = 0;
-
-	while (buf[i])
-		i++;
-
-	return (i);
+	return (w);
 }
