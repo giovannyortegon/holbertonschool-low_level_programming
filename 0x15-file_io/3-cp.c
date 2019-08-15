@@ -26,7 +26,7 @@ int main(int ac, char **arv)
  */
 int copy_file(const char *filename, const char *file_new)
 {
-	int fold, fnew, rest;
+	int fold, fnew, r_old, w_new;
 	int size = 1024;
 	char *buf;
 
@@ -42,8 +42,10 @@ int copy_file(const char *filename, const char *file_new)
 		exit(98);
 	}
 
-	rest = read(fold, buf, size);
-	buf[rest] = '\0';
+	r_old = read(fold, buf, size);
+	buf[r_old] = '\0';
+	if (r_old == -1)
+		exit(98);
 
 	fnew = open(file_new, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fnew == -1)
@@ -52,13 +54,15 @@ int copy_file(const char *filename, const char *file_new)
 		exit(99);
 	}
 
-	write(fnew, buf, rest);
+	w_new = write(fnew, buf, r_old);
+	if (w_new == -1)
+		exit(99);
 
 	close_f(fold);
 	close_f(fnew);
 	free_buf(buf);
 
-	return (rest);
+	return (r_old);
 
 }
 /**
