@@ -26,7 +26,7 @@ int main(int ac, char **arv)
  */
 int copy_file(const char *filename, const char *file_new)
 {
-	int fold, fnew, rest;
+	int fold, fnew, r_old, w_new;
 	int size = 1024;
 	char *buf;
 
@@ -38,27 +38,31 @@ int copy_file(const char *filename, const char *file_new)
 
 	if (fold == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
 
-	rest = read(fold, buf, size);
-	buf[rest] = '\0';
+	r_old = read(fold, buf, size);
+	buf[r_old] = '\0';
+	if (r_old == -1)
+		exit(98);
 
 	fnew = open(file_new, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fnew == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", file_new);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_new);
 		exit(99);
 	}
 
-	write(fnew, buf, rest);
+	w_new = write(fnew, buf, r_old);
+	if (w_new == -1)
+		exit(99);
 
 	close_f(fold);
 	close_f(fnew);
 	free_buf(buf);
 
-	return (rest);
+	return (r_old);
 
 }
 /**
@@ -67,12 +71,14 @@ int copy_file(const char *filename, const char *file_new)
  */
 void close_f(int fd)
 {
-	int ret;
+	int ret, errsv;
+
+	errsv = errno;
 
 	ret = close(fd);
 	if (ret == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", errno);
+		dprintf(STDERR_FILENO, "Error: Can't write to %d\n", errsv);
 		exit(100);
 	}
 }
