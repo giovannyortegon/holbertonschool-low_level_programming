@@ -1,0 +1,6 @@
+[submodule "0x19-stacks_queues_lifo_fifo/-f"]
+	path = 0x19-stacks_queues_lifo_fifo/-f
+	url = https://github.com/Skillhh/monty.git
+[submodule "0x19-stacks_queues_lifo_fifo/--monty"]
+	path = 0x19-stacks_queues_lifo_fifo/--monty
+	url = https://github.com/Skillhh/monty.git
