@@ -1,6 +1,11 @@
 #include "hash_tables.h"
 #include <stdio.h>
 
+/**
+ * hash_table_create - entry size hash table
+ * @size:	size of array
+ * Return:	NULL if it fail or new hash
+ */
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *new_h = NULL;
