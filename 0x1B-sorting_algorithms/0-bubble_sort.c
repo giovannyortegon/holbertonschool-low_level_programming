@@ -8,7 +8,7 @@
 void bubble_sort(int *array, size_t size)
 {
 	size_t i, n = size - 1;
-	int sort = 1;
+	int sort = 1, aux = 0;
 
 	if (size < 2)
 		return;
@@ -20,25 +20,14 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[i - 1] > array[i])
 			{
-				swap(&array[i - 1], &array[i]);
+				aux = array[i - 1];
+				array[i - 1] = array[i];
+				array[i] = aux;
+				
 				sort = 1;
 				print_array(array, size);
 			}
 		}
 		n--;
 	}
-}
-
-/**
- * swap - exchange function
- * @a: prev array value
- * @b: current array value
- */
-void swap(int *a, int *b)
-{
-	int aux = 0;
-
-	aux = *a;
-	*a = *b;
-	*b = aux;
 }
