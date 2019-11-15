@@ -1,4 +1,4 @@
-CC	:= gcc
-SRC	:= main.c holberton.c
+CC = gcc
+SRC = *.c
 all:
 	$(CC) $(SRC) -o holberton
