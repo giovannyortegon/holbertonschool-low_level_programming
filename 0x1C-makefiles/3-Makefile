@@ -17,3 +17,5 @@ oclean:
 	$(RM) -f $(OBJ)
 
 fclean: clean oclean
+
+re: pclean all
