@@ -10,7 +10,9 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
 	binary_tree_t *new_node = NULL;
 /* Locate Memory */
-	new_node = newNode();
+	new_node = (binary_tree_t *) malloc(sizeof(binary_tree_t));
+	if (new_node == NULL)
+		return (NULL);
 /* Create Node */
 	new_node->n = value;
 	new_node->parent = NULL;
@@ -19,27 +21,8 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 
 	if (parent == NULL)
 		parent = new_node;
-	else if(parent != NULL && value < parent->left)
-		parent->left = new_node;
-	else if(parent != NULL && value > parent->left)
-		parent->right = new_node;
 	else
-	{
 		new_node->parent = parent;
-		parent = new_node;
-	}
-	return (parent);
-}
-/**
- * newNode - Create a locate memory for new node
- * Return: locate memory
- */
-binary_tree_t *newNode()
-{
-	binary_tree_t *q = (binary_tree_t *) malloc(sizeof(binary_tree_t));
 
-	if (!q)
-		return (NULL);
-
-	return (q);
+	return (new_node);
 }
