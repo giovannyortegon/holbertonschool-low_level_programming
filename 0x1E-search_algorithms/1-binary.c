@@ -1,6 +1,6 @@
 #include "search_algos.h"
 /**
- * linear_search - searches for a value in an array of integers
+ * binary_search - searches for a value in an array of integers
  * @array:	Pointer to an array
  * @size:	Length of the array
  * @value:	Value of an element of an array
@@ -33,15 +33,10 @@ int binary_search(int *array, size_t size, int value)
 		if (value == ValueCentral)
 			return (central);
 		else if (value < ValueCentral)
-		{
 			up = central - 1;
-			i = down;
-		}
 		else
-		{
 			down = central + 1;
-			i = down;
-		}
+		i = down;
 	}
 	return (-1);
 }
